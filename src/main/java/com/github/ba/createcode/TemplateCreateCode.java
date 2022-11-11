@@ -8,6 +8,7 @@ import java.io.StringWriter;
 import java.util.Properties;
 
 /**
+ * 模版生成代码
  * @author wang xiao
  * date 2022/11/11
  */
