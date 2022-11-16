@@ -23,6 +23,7 @@ public class JavaNodeTest {
         JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
         JavaFileObject javaFileObject = new SourceJavaObj("De",compilerCode);
         Boolean result = compiler.getTask(null, null, null, null, null, List.of(javaFileObject)).call();
+        System.out.println(result);
     }
 
 }
