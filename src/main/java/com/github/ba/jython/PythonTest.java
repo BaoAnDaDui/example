@@ -21,7 +21,7 @@ public class PythonTest {
         PythonInterpreter interpreter = new PythonInterpreter();
         //选择执行的的Python语句
         String source = "def covert(state):\n" +
-                "    return state.id";
+                "    return state['id']+1";
         System.out.println("1"+Instant.now());
 
         interpreter.execfile(new ByteArrayInputStream(source.getBytes(StandardCharsets.UTF_8)));
@@ -32,13 +32,10 @@ public class PythonTest {
         HashMap<String,Object> v = new HashMap<String,Object>();
         v.put("id",1);
 
-        PyObject pyObject = pyFunction.__call__(PyJavaType.wrapJavaObject(v));
+        PyObject pyObject = pyFunction.__call__(Py.java2py(v));
         System.out.println(pyObject);
         System.out.println("3"+Instant.now());
 
-        PyObject pyobj = pyFunction.__call__();
-        System.out.println("4"+Instant.now());
-        System.out.println("the anwser is: " + pyobj);
 
     }
 }
