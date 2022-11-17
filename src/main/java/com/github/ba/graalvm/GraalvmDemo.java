@@ -58,7 +58,7 @@ public class GraalvmDemo {
                 .allowExperimentalOptions(true)
                 .option(JSContextOptions.ECMASCRIPT_VERSION_NAME, "2017")
                 .option(JSContextOptions.FOREIGN_OBJECT_PROTOTYPE_NAME, "true")
-                .option(JSContextOptions.EXPERIMENTAL_FOREIGN_OBJECT_PROTOTYPE_NAME, "true")
+               // .option(JSContextOptions.EXPERIMENTAL_FOREIGN_OBJECT_PROTOTYPE_NAME, "true")
                 .option(JSContextOptions.CONSOLE_NAME, "true")
                 .option(JSContextOptions.PRINT_NAME, "true")
                 .option(JSContextOptions.UNHANDLED_REJECTIONS_NAME, "throw");
