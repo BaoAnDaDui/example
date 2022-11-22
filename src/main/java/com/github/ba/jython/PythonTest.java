@@ -1,11 +1,12 @@
 package com.github.ba.jython;
 
-import org.python.core.*;
+import org.python.core.Py;
+import org.python.core.PyFunction;
+import org.python.core.PyObject;
 import org.python.util.PythonInterpreter;
 
-import javax.script.*;
+import javax.script.ScriptException;
 import java.io.ByteArrayInputStream;
-import java.io.FileReader;
 import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.util.HashMap;
