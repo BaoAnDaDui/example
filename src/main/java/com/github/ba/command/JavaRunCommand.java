@@ -1,35 +1,30 @@
-//package com.github.ba.command;
-//
-//import java.io.BufferedReader;
-//import java.io.IOException;
-//import java.io.InputStreamReader;
-//
-///**
-// * @author wang xiao
-// * date 2022/11/17
-// */
-//public class JavaRunCommand {
-//    public static void main(String args[]) {
-//        String workDir = "E:/PycharmProjects/pythonProject";
-//        CommandLine cmdLine = new CommandLine(env);
-//        cmdLine.addArgument(mainpy);
-//        cmdLine.addArgument(workDir);
-//        cmdLine.addArgument("testdir");
-////        Map map = new HashMap();
-////        map.put("file", new File(mainpy));
-////        cmdLine.addArgument("${file}");
-////        cmdLine.setSubstitutionMap(map);
-//
-//        DefaultExecutor executor = new DefaultExecutor();
-//
-//        //创建监控时间60秒，超过60秒则中断执行
-//        ExecuteWatchdog watchdog = new ExecuteWatchdog(60*1000);
-//        executor.setWatchdog(watchdog);
-//
-//        executor.setExitValue(0);
-//        int exitValue = executor.execute(cmdLine);
-//        System.out.println(exitValue);
-//
-//
-//    }
-//}
+package com.github.ba.command;
+
+import java.io.*;
+
+/**
+ * @author wang xiao
+ * date 2022/11/17
+ */
+public class JavaRunCommand {
+    public static void main(String args[]) throws IOException {
+
+        String Python_Script =
+                "print(\"Hello, This is Delftstack.com!The Best Tutorial Site!\")\n";
+
+        BufferedWriter Buffered_Writer = new BufferedWriter(
+                new FileWriter("DemoPythonFile.py"));
+        Buffered_Writer.write(Python_Script);
+        Buffered_Writer.close();
+
+        Process Demo_Process = Runtime.getRuntime().exec("python DemoPythonFile.py");
+
+        BufferedReader Buffered_Reader = new BufferedReader(
+                new InputStreamReader(
+                        Demo_Process.getInputStream()
+                ));
+        String s = Buffered_Reader.readLine();
+        System.out.println(s);
+
+    }
+}
