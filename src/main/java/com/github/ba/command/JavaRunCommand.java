@@ -1,48 +1,35 @@
-package com.github.ba.command;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-/**
- * @author wang xiao
- * date 2022/11/17
- */
-public class JavaRunCommand {
-    public static void main(String args[]) {
-
-        String s = null;
-
-        try {
-
-            // run the Unix "ps -ef" command
-            // using the Runtime exec method:
-            Process p = Runtime.getRuntime().exec("ps -ef");
-
-            BufferedReader stdInput = new BufferedReader(new
-                    InputStreamReader(p.getInputStream()));
-
-            BufferedReader stdError = new BufferedReader(new
-                    InputStreamReader(p.getErrorStream()));
-
-            // read the output from the command
-            System.out.println("Here is the standard output of the command:\n");
-            while ((s = stdInput.readLine()) != null) {
-                System.out.println(s);
-            }
-
-            // read any errors from the attempted command
-            System.out.println("Here is the standard error of the command (if any):\n");
-            while ((s = stdError.readLine()) != null) {
-                System.out.println(s);
-            }
-
-            System.exit(0);
-        }
-        catch (IOException e) {
-            System.out.println("exception happened - here's what I know: ");
-            e.printStackTrace();
-            System.exit(-1);
-        }
-    }
-}
+//package com.github.ba.command;
+//
+//import java.io.BufferedReader;
+//import java.io.IOException;
+//import java.io.InputStreamReader;
+//
+///**
+// * @author wang xiao
+// * date 2022/11/17
+// */
+//public class JavaRunCommand {
+//    public static void main(String args[]) {
+//        String workDir = "E:/PycharmProjects/pythonProject";
+//        CommandLine cmdLine = new CommandLine(env);
+//        cmdLine.addArgument(mainpy);
+//        cmdLine.addArgument(workDir);
+//        cmdLine.addArgument("testdir");
+////        Map map = new HashMap();
+////        map.put("file", new File(mainpy));
+////        cmdLine.addArgument("${file}");
+////        cmdLine.setSubstitutionMap(map);
+//
+//        DefaultExecutor executor = new DefaultExecutor();
+//
+//        //创建监控时间60秒，超过60秒则中断执行
+//        ExecuteWatchdog watchdog = new ExecuteWatchdog(60*1000);
+//        executor.setWatchdog(watchdog);
+//
+//        executor.setExitValue(0);
+//        int exitValue = executor.execute(cmdLine);
+//        System.out.println(exitValue);
+//
+//
+//    }
+//}
