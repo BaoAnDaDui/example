@@ -2,6 +2,7 @@ package com.github.ba.graalvm;
 
 import org.graalvm.polyglot.Context;
 import org.graalvm.polyglot.PolyglotAccess;
+import org.graalvm.polyglot.Value;
 
 /**
  * @author wang xiao
@@ -31,7 +32,9 @@ public class ScriptDemo {
                 .allowPolyglotAccess(PolyglotAccess.ALL)
                 .build();
         context.getPolyglotBindings().putMember("name", n);
-        context.eval("js", "var name = Polyglot.import('name');");
+        Value js = context.eval("js", "var name = Polyglot.import('name');");
+
+        System.out.println(js);
         context.eval("js", "console.log(name.getName())");
 
 

@@ -1,8 +1,11 @@
 package com.github.ba.command;
 
-import org.python.apache.commons.compress.utils.IOUtils;
+
+
+import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
+import java.nio.charset.Charset;
 
 /**
  * @author wang xiao
@@ -16,12 +19,12 @@ public class JavaCommandDemo {
         // // 阻塞等待完成
         int exitCode = process.waitFor();
         // 状态码0表示执行成功
-//        if (exitCode == 0) {
-//            String result = IOUtils(process.getInputStream());
-//            System.out.println(result);
-//        } else {
-//            String errMsg = IOUtils.toString(process.getErrorStream());
-//            System.out.println(errMsg);
-//        }
+        if (exitCode == 0) {
+            String result = IOUtils.toString(process.getInputStream(), Charset.defaultCharset());
+            System.out.println(result);
+        } else {
+            String errMsg = IOUtils.toString(process.getErrorStream(),Charset.defaultCharset());
+            System.out.println(errMsg);
+        }
     }
 }
