@@ -4,3 +4,4 @@
 2. 动态生成源码
 3. 编译源码
 4. es6 支持
+5. python 支持 但是jep 需要install 
