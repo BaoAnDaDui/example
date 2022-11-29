@@ -7,23 +7,23 @@ import java.io.*;
  * date 2022/11/17
  */
 public class JavaRunCommand {
-    public static void main(String args[]) throws IOException {
+    public static void main(String[] args) throws IOException {
 
-        String Python_Script =
+        String pythonScript =
                 "print(\"Hello, This is Delftstack.com!The Best Tutorial Site!\")\n";
 
-        BufferedWriter Buffered_Writer = new BufferedWriter(
+        BufferedWriter bufferedWriter = new BufferedWriter(
                 new FileWriter("DemoPythonFile.py"));
-        Buffered_Writer.write(Python_Script);
-        Buffered_Writer.close();
+        bufferedWriter.write(pythonScript);
+        bufferedWriter.close();
 
-        Process Demo_Process = Runtime.getRuntime().exec("python DemoPythonFile.py");
+        Process demoProcess = Runtime.getRuntime().exec("python DemoPythonFile.py");
 
-        BufferedReader Buffered_Reader = new BufferedReader(
+        BufferedReader bufferedReader = new BufferedReader(
                 new InputStreamReader(
-                        Demo_Process.getInputStream()
+                        demoProcess.getInputStream()
                 ));
-        String s = Buffered_Reader.readLine();
+        String s = bufferedReader.readLine();
         System.out.println(s);
 
     }
