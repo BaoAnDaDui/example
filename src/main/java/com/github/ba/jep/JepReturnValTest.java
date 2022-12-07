@@ -12,6 +12,7 @@ public class JepReturnValTest {
     public static void main(String[] args) {
         try (Interpreter interp = new SharedInterpreter()) {
             interp.set("user_name", "name");
+            interp.runScript("def cobver");
             interp.exec("result = 'Hi, ' + user_name");
             String output = (String) interp.getValue("result");
             System.out.println(output);
